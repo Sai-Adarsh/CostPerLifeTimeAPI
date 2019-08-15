@@ -79,7 +79,7 @@ def result():
       parsedURL = urlparse(result)
       print(parsedURL.netloc)
       if(parsedURL.netloc != 'www.flipkart.com'):
-          return jsonify(warn = 'Enter a valid Flipkart URL')
+          return jsonify(warn = 'X001')
 
       #SCRAPE RESULTS
       result = scrape(result)
@@ -87,7 +87,7 @@ def result():
       #CHECK IF STATUS RETURNS SUCCESS OR PARTIAL SUCCESS
       statusCode = result[0]
       if(statusCode == 201):
-          return jsonify(warn = 'Enter a valid Flipkart Product URL')
+          return jsonify(warn = 'X002')
 
       #VALUES FROM SCRAPE RESULT
       title = result[1]
