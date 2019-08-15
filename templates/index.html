@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Impact Hackathon | Team Appendly</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<!--===============================================================================================-->
+	<style type="text/css">
+		.warn{
+			color: #FF0000;
+		}
+	</style>
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action = "/result" method = "POST">
+				<span class="contact100-form-title">
+					Flipkart CPL Predictor
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Topic is required">
+					<span class="label-input100">Flipkart URL</span>
+					<input class="input100" type="text" name="Name" placeholder="Paste product URL">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+				<div>
+					{% if warn is defined %}
+						<br><center><p class="warn">{{ warn }}</p></center>
+					{% endif %}
+					{% if title is defined %}
+						<p>
+							<br><center><img src="{{ imgURL }}" alt="{{ title }}"></center><br>
+						</p>
+						<p>
+							<br><b>Title: {{ title }}</b>
+							<br><b>Price: ₹{{ price }} | ${{ pusd }} | ¥{{ pyen }} | €{{ peur }}</b><br>
+							<b>Rating ⭐: {{ rating }}</b><br>
+							<b>Value for Money 💰: {{ value }}</b><br>
+							<b>Warranty: {{ warranty }} months</b><br>
+							<b>Cost per lifetime: <font color="#00c643">₹{{ CPL }} | ${{ cusd }} | ¥{{ cyen }} | €{{ ceur }}</font></b>
+						</p>
+					{% endif %}
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/js/main.js"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
